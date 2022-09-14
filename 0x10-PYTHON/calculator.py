@@ -32,7 +32,7 @@ def calculator():
 	while flag != False:
 		choose_operator = input(f"Would you like to countiue calculating with {result_1}?\nType 'y' for yes and 'n' for no.\n").lower()
 		if choose_operator == "y":
-			flag = False
+			flag = True
 			choose_operator = input("choose an operator\n")
 			new_num = float(input("Enter another number\n"))
 
