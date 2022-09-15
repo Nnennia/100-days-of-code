@@ -1,6 +1,6 @@
 import random
-import os
 from art import logo
+import os
 
 def black_jack():
 	print (logo)
