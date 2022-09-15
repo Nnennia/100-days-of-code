@@ -29,7 +29,7 @@ def black_jack():
 					return new_score
 				return score
 
-		print(f"Your cards are {user_card}\n Your current score is: {calculate_score(user_card)}")
+		print(f"Your cards are {user_card}\nYour current score is: {calculate_score(user_card)}")
 		print(f"The computer's first card: is {computer_card[0]}")
 
 		if calculate_score(user_card) == 0:
@@ -40,14 +40,14 @@ def black_jack():
 			break
 		elif calculate_score(user_card) > 21:
 			print("You lose!")
-		choose = input("Do you want to pick another card?\n Type 'y' for yes and 'n' for no ").lower()
+		choose = input("Do you want to pick another card?\nType 'y' for yes and 'n' for no ").lower()
 		if choose == "y":
 			user_card.extend(deal_card(1))
 		elif choose == "n":
 			flag = False
 			while calculate_score(computer_card) <= 17:
 				computer_card.extend(deal_card(1))
-			print(f"Your final hand is {user_card}\n Your final score is {calculate_score(user_card)}")
+			print(f"Your final hand is {user_card}\nYour final score is {calculate_score(user_card)}")
 			print(f"The computer's final hand is {computer_card}\nThe computer's final score is {calculate_score(computer_card)}")
 	def compare(user_score,computer_score): # comparing final scores
 		if calculate_score(user_score) == calculate_score(computer_score):
