@@ -7,7 +7,7 @@ difficulty = input("Choose a difficulty\nType 'easy' or 'hard' ").lower()
 if difficulty == "easy":
 	attempts = 10
 
-	print(f"You have {attempts} remaining to guess the number.")
+	print(f"You have {attempts} attempts remaining to guess the number.")
 	flag = True
 	while flag != False:
 		user = int(input("Make a guess: "))
@@ -33,7 +33,7 @@ if difficulty == "easy":
 			print("Input a number")
 elif difficulty == "hard":
 	attempts = 5
-	print(f"You have {attempts} remainning to guess the number.")
+	print(f"You have {attempts} attempts remainning to guess the number.")
 	flag = True
 	while flag != False:
 		user = int(input("Make a guess: "))
