@@ -23,11 +23,13 @@ if difficulty == "easy":
 			flag = True
 			print("Too low")
 			attempts -= 1
-			print(f"You have {attempts} left.\nGuess again.")
+			print(f"You have {attempts} attempts left.\nGuess again.")
 			if attempts == 0:
 				flag = False
 				print(f"You lose. Random number was {random_number}")
 		elif user == random_number:
+			
+			flag = False
 			print(f"You win. You number was {user} and random number was {random_number}")
 		else:
 			print("Input a number")
@@ -49,11 +51,12 @@ elif difficulty == "hard":
 			flag = True
 			print("Too low")
 			attempts -= 1
-			print(f"You have {attempts} left.\nGuess again.")
+			print(f"You have {attempts} attempts left.\nGuess again.")
 			if attempts == 0:
 				flag = False
 				print(f"You lose. Random number was {random_number}")
 		elif user == random_number:
+			flag = False
 			print(f"You win. You number was {user} and random number was {random_number}")
 		else:
 			print("Input a number")
