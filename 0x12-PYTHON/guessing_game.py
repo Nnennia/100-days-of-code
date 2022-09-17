@@ -28,7 +28,7 @@ if difficulty == "easy":
 				flag = False
 				print(f"You lose. Random number was {random_number}")
 		elif user == random_number:
-			
+
 			flag = False
 			print(f"You win. You number was {user} and random number was {random_number}")
 		else:
