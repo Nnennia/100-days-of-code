@@ -8,4 +8,6 @@ tipAmount = bill * tipPercent
 totalBill = bill + tipAmount
 billperPerson = totalBill / people
 
-print(round(billperPerson, 2))
+money = (round(billperPerson, 2))
+
+print(f"Easch person should pay {money}")
