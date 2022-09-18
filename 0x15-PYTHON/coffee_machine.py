@@ -3,13 +3,16 @@ from main import MENU,resources
 money = 0
 flag = True
 
+water = resources["water"]
+milk = resources["milk"]
+coffee = resources["coffee"]
+
+
 while flag != False:
 	user = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
 
-	water = resources["water"]
-	milk = resources["milk"]
-	coffee = resources["coffee"]
+
 	def report():
 		print(f"Water:{water}ml\nMilk:{milk}ml\nCoffee:{coffee}g\nMoney:${money}")
 	if user == "report":
@@ -27,7 +30,7 @@ while flag != False:
 	def espresso_c():
 		if water > espresso_water and coffee > espresso_coffee:
 			return True
-		elif water > espresso_water:
+		elif water < espresso_water:
 			print("Sorry there is not enough coffee")
 		elif coffee < espresso_coffee:
 			print("sorry, there is not enough coffee")
@@ -62,81 +65,94 @@ while flag != False:
 			print("Sorry not enough milk")
 	#cappuccino_c()
 	if user == "espresso":
-		flag = True
-		print("Please insert coins.")
+		if espresso_c() == True:
+			print("Please insert coins.")
 
-		quarter = float(input("How many quarters? "))
+			quarter = float(input("How many quarters? "))
 
-		dime = float(input("How many dimes? "))
+			dime = float(input("How many dimes? "))
 
-		nickel = float(input("How many nickles? "))
+			nickel = float(input("How many nickles? "))
 
-		penny = float(input("How many pennies? "))
+			penny = float(input("How many pennies? "))
 
-		Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
+			Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
 
-		if Sum_1 == espresso:
-			money += Sum_1
-			#print(Sum_1)
-			print("Enjoy your espresso")
-		elif Sum_1 > espresso:
-			change_esp = Sum_1 - espresso
-			money += espresso
-			print(money)
-			print(f"Enjoy your espresso.Here is  your change $ {change_esp}" )
-		elif Sum_1 < espresso:
-			print("Insufficent funds.Money refunded.")
+			if Sum_1 == espresso:
+				money += espresso
+				water -= espresso_water
+				coffee -= espresso_coffee
+				print("Enjoy your espresso")
+			elif Sum_1 > espresso:
+				water -= espresso_water
+				coffee -= espresso_coffee
+				change_esp = Sum_1 - espresso
+				money += espresso
+				print(f"Enjoy your espresso.Here is  your change $ {round(change_esp,2)}" )
+			elif Sum_1 < espresso:
+				print("Insufficent funds.Money refunded.")
 
 	elif user == "latte":
-		print("Please insert coins.")
+		if latte_c() == True:
+			print("Please insert coins.")
 
-		quarter = float(input("How many quarters? "))
+			quarter = float(input("How many quarters? "))
 
-		dime = float(input("How many dimes? "))
+			dime = float(input("How many dimes? "))
 
-		nickel = float(input("How many nickles? "))
+			nickel = float(input("How many nickles? "))
 
-		penny = float(input("How many pennies? "))
+			penny = float(input("How many pennies? "))
 
-		Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
+			Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
 
-		flag = True
-		if Sum_1 == latte:
-			money += Sum_1
-			print("Enjoy your latte.")
-		elif Sum_1 > latte:
-			change_lat = Sum_1 - latte
-			money += latte
-			print(Sum_1)
-			print(f"Enjoy your latte. Here is your change $ {change_lat}")
-		elif Sum_1 < latte:
-			print(Sum_1)
-			print("Insufficent Funds.Money refunded.")
+			flag = True
+			if Sum_1 == latte:
+				money += latte
+				water -= latte_water
+				coffee -= latte_coffee
+				milk -= latte_milk
+				print("Enjoy your latte.")
+			elif Sum_1 > latte:
+				water -= latte_water
+				coffee -= latte_coffee
+				milk -= latte_milk
+				change_lat = Sum_1 - latte
+				money += latte
+				print(f"Enjoy your latte. Here is your change $ {round(change_lat,2)}")
+			elif Sum_1 < latte:
+				print("Insufficent Funds.Money refunded.")
 
 	elif user == "cappuccino":
-		flag = True
-		print("Please insert coins.")
+		if cappuccino_c() == True:
+			print("Please insert coins.")
 
-		quarter = float(input("How many quarters? "))
+			quarter = float(input("How many quarters? "))
 
-		dime = float(input("How many dimes? "))
+			dime = float(input("How many dimes? "))
 
-		nickel = float(input("How many nickles? "))
+			nickel = float(input("How many nickles? "))
 
-		penny = float(input("How many pennies? "))
+			penny = float(input("How many pennies? "))
 
-		Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
+			Sum_1 = round(((quarter*0.25) + (dime*0.1) + (nickel*0.05) + (penny*0.01)),1)
 
-		if Sum_1 == cappuccino:
-			money += Sum_1
-			print("Enjoy your cappuccino")
-		elif Sum_1 > cappuccino:
-			change_cap = Sum_1 - cappuccino
-			money =+ cappuccino
-			print(f"Enjoy your cappuccino. Here is your change $ {change_cap}")
-		elif Sum_1 < cappuccino:
-			print("Insufficent Funds.Money refunded.")
-		else:
-			print("Please input an option")
+			if Sum_1 == cappuccino:
+				money += cappuccino
+				water -= cappuccino_water
+				coffee -= cappuccino_coffee
+				milk = milk - cappuccino_milk
+				print("Enjoy your cappuccino")
+			elif Sum_1 > cappuccino:
+				water -= cappuccino_water
+				coffee -= cappuccino_coffee
+				milk -= cappuccino_milk
+				change_cap = Sum_1 - cappuccino
+				money += cappuccino
+				print(f"Enjoy your cappuccino. Here is your change $ {round(change_cap,2)}")
+			elif Sum_1 < cappuccino:
+				print("Insufficent Funds.Money refunded.")
+			else:
+				print("Please input an option")
 	else:
 		print("Please pick a coffee type")
