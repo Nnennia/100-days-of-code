@@ -4,14 +4,23 @@ from money_machine import MoneyMachine
 
 flag = True
 
+maker = CoffeeMaker()
+money = MoneyMachine()
+menu = Menu()
+Menuitem = MenuItem()
+
 while flag != False:
-    user = input(f"What would you like? (espresso/latte/cappuccino) ").lower()
-    coffee_maker = CoffeeMaker()
-    money_machine = MoneyMachine()
-    menu = Menu()
-    menu_items = MenuItem()
+    user = input("What would you like (espresso/latte/cappuccino): ").lower()
+
     if user == "report":
-        coffee_maker.report()
-        money_machine.report()
+        maker.report()
+        money.report()
 
+    elif user == "off":
+        flag = False
 
+    else:
+        choice = menu.find_drink(user)
+        if maker.is_resource_sufficient(choice) == True:
+            pay = money.process_coins()
+            if money.make_payment(choice.cost) == True:
