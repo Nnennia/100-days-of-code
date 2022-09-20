@@ -31,7 +31,7 @@ while flag != False:
 		if water > espresso_water and coffee > espresso_coffee:
 			return True
 		elif water < espresso_water:
-			print("Sorry there is not enough coffee")
+			print("Sorry there is not enough water")
 		elif coffee < espresso_coffee:
 			print("sorry, there is not enough coffee")
 	#espresso_c()
