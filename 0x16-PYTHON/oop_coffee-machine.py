@@ -14,8 +14,4 @@ while flag != False:
         coffee_maker.report()
         money_machine.report()
 
-    # if coffee_maker.is_resource_sufficient(drink = ):
-    #     Quarter = float(input("How many quarters? "))
-    #     Dime = float(input("How many dimes? "))
-    #     Nickel = float(input("How many nickles? "))
-    #     Penny = float(input("How many pennies? "))
+
