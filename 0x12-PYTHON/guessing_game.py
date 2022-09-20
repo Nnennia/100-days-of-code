@@ -1,6 +1,6 @@
 import random
 
-random_number = random.randrange(0,101,1)
+random_number = random.randrange(0,101)
 print("Welcome to the number guessing game!\nI'm thinking of a number between 1 and 100.")
 difficulty = input("Choose a difficulty\nType 'easy' or 'hard' ").lower()
 
