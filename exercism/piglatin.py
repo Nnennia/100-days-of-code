@@ -1,12 +1,14 @@
-def pig_latin(word):
-    word = word.strip().lower()
-    pig_latin =''
-    vowel = ['a','e','i','o','u']
-    for i in range(len(word)):
-        if word[i] in vowel:
-            if i==0:
-                word+="w"
-            pig_latin+=word[i:]+word[0:i]+"ay"
-            break
-    return pig_latin
-  
+def translate(text):
+    return ' '.join([pig(word) for word in text.split(' ')])
+def pig(word):
+    if word[0] not in 'aieou' and word[1:3] == 'qu':
+        return word[3:] + word[:3] + "ay"
+    if word[0] in 'aieou':
+        return word + "ay"
+    if word[:2] in ['yt', 'xr']:
+        return word + "ay"
+    if word[:2] in ['qu']:
+        return word[2:] + word[:2] + "ay"
+    if set('aieou') - set(word) == set('aieou') and 'yt' not in word:
+        return word[1:] + word[:1] + "ay"
+    return pig(word[1:] + word[0])
