@@ -15,15 +15,15 @@ def card_average(hand):
     return sum(hand) / len(hand)
 
 
-
 def approx_average_is_average(hand):
     '''
- 
+
     :param hand: list - cards in hand.
     :return: int - approximate average value of the cards in the hand.
     '''
     avg = card_average(hand)
-    return avg == float(hand[len(hand) // 2]) or avg == (hand[0] + hand[-1]) / 2
+    avg == float(hand[len(hand) // 2]) or avg == (hand[0] + hand[-1]) / 2
+    return avg
 
 
 def average_even_is_odd(hand):

@@ -12,6 +12,7 @@ def check_sentence_ending(sentence):
     """
     return sentence.endswith(".")
 
+
 def clean_up_spacing(sentence):
     """Removes unnecessary spacing
     """

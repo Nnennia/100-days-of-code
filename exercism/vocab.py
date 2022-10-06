@@ -25,4 +25,3 @@ def adjective_to_verb(sentence, index):
     x = y.split()
     n = x[index]
     return n + "en"
-  
