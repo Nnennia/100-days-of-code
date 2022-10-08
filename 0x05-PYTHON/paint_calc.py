@@ -1,6 +1,7 @@
-def paint_calc(height,width,cover):
-    number_can =round((test_h * test_w) / coverage)
+def paint_calc(height, width, cover):
+    number_can = round((test_h * test_w) / coverage)
     print(f"You will need {number_can} number of paints")
+
 
 # import math
 # math.ceil to round a number up to nearest whole number
