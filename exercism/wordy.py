@@ -13,7 +13,7 @@ def answer(question):
             if not left:
                 raise ValueError("syntax error")
             operation = question.pop()
-            if operation not in "-/*+" :
+            if operation not in "-/*+":
                 try:
                     int(operation)
                 except:
