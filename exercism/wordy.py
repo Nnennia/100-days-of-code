@@ -26,9 +26,9 @@ def answer(question):
             operation = question.pop()
             right = question.pop()
 
-        if left in "-/*+" or  right in "-/*+":
+        if left in "-/*+" or right in "-/*+":
             raise ValueError("syntax error")
-        if operation not in "-/*+" :
+        if operation not in "-/*+":
             raise ValueError("unknown operation")
         question.append(str(eval(left+operation+right)))
     return int(float(question[0]))
