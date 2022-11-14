@@ -23,6 +23,17 @@ def login():
             elif newpass == password:
                 flag = False
                 print(f"Login sucess!\nWelcome user: {username}!")
+        login = ({"username": [username],
+                  "password": [password]})
+        data = pandas.DataFrame(login)
+        data.to_csv("26-day/newpassword.csv")
+        create = pandas.read_csv("26-day/newpassword.csv")
+        for index, row in create.iterrows():
+            if username == row.username:
+                print("Username already exists")
+
+            elif username != row.username:
+                flag = False
 
 
 login()
