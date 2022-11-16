@@ -19,7 +19,7 @@ def passwrd():
     flag = True
     while flag:
         password = input("Input a new password\n")
-        if len(password) == 8:
+        if len(password) == 9:
             if password != username:
                 flag = False
                 print("saved\n")

@@ -19,7 +19,7 @@ class User:
         flag = True
         while flag:
             password = input("Input a new password\n")
-            if len(password) == 8:
+            if len(password) == 9:
                 if password != username:
                     flag = False
                     print("saved\n")
@@ -43,6 +43,6 @@ class User:
                 if count == 5:
                     flag = False
                     print("TOO MANY GUESSES! ACCOUNT LOCKED")
-            elif newpass == password:
+            else:
                 flag = False
                 print(f"Login success!\nWelcome user: {username}!")
