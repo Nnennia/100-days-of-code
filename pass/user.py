@@ -3,14 +3,13 @@ def user_name():
     flag = True
     while flag:
         with open("pass/username.txt", "r+") as name:
-            username = input("Enter a username: ").lower()
+            username = input("Enter a username: ")
             if username not in name.read():
                 if len(username) == 8:
                     print("saved!")
-                    name.write(username + "\n")
                     flag = False
                 else:
-                    print("username must be 8 characters long!")
+                    print("Username must be 8 characters long!")
             else:
                 print("Username already exists")
 
@@ -30,11 +29,16 @@ def passwrd():
             print("Password must be 8 characters long!")
 
 
+def saved():
+    with open("pass/username.txt", "r+") as name:
+        name.write(username + ' ' + password + "\n")
+
+
 def re_log():
     flag = True
     count = 0
     while flag:
-        newpass = input("input your password to loggin\n")
+        newpass = input("input your password to login\n")
         if newpass != password:
             print("Wrong pasword!")
             count += 1
@@ -48,4 +52,5 @@ def re_log():
 
 user_name()
 passwrd()
+saved()
 re_log()
